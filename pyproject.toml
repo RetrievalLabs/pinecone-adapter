@@ -2,6 +2,54 @@
 name = "pinecone-adapter"
 version = "0.1.0"
 description = "Pinecone adapter for rag_control"
+authors = [{ name = "RetrievalLabs" }]
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
+license = { file = "LICENSE" }
+
+keywords = [
+  "rag-control",
+  "openai",
+  "rag",
+  "llm",
+  "governance",
+  "ai-security",
+  "retrieval",
+  "rbac",
+  "hallucination",
+  "enterprise-ai"
+]
+
+[tool.setuptools.package-data]
+pinecone_adapter = ["py.typed"]
+
+[tool.ruff]
+line-length = 100
+fix = true
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.black]
+line-length = 100
+
+[tool.mypy]
+strict = true
+
+[dependency-groups]
+dev = [
+    "black>=25.11.0",
+    "mypy>=1.19.1",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.15.1",
+]
+
+[tool.coverage.run]
+source = ["pinecone_adapter"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+omit = ["tests/*"]
