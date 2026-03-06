@@ -1,7 +1,7 @@
 [project]
 name = "pinecone-adapter"
 version = "0.1.0"
-description = "Add your description here"
+description = "Pinecone adapter for rag_control"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
