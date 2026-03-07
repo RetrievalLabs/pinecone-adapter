@@ -10,8 +10,8 @@ from pinecone import Pinecone  # type: ignore[import-untyped]
 from rag_control.adapters import VectorStore
 from rag_control.exceptions import VectorStoreAdapterError
 from rag_control.models import (
-    FilterCondition,
     Filter,
+    FilterCondition,
     UserContext,
     VectorStoreRecord,
     VectorStoreSearchMetadata,

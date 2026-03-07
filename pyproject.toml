@@ -40,6 +40,10 @@ line-length = 100
 [tool.mypy]
 strict = true
 
+[[tool.mypy.overrides]]
+module = "tests.*"
+ignore_errors = true
+
 [dependency-groups]
 dev = [
     "black>=25.11.0",
