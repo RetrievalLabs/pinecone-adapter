@@ -14,13 +14,13 @@ from rag_control.models import (
     VectorStoreRecord,
 )
 
-from pinecone_adopter.vector_store import PineconeVectorStoreAdapter
+from pinecone_adapter.vector_store import PineconeVectorStoreAdapter
 
 
 class TestPineconeVectorStoreAdapterInit:
     """Test initialization of PineconeVectorStoreAdapter."""
 
-    @patch("pinecone_adopter.vector_store.adapter.Pinecone")
+    @patch("pinecone_adapter.vector_store.adapter.Pinecone")
     def test_init_success(self, mock_pinecone_class):
         """Test successful initialization."""
         # Setup mocks
@@ -48,7 +48,7 @@ class TestPineconeVectorStoreAdapterInit:
         # Verify adapter properties
         assert adapter.embedding_model == "text-embedding-3-small"
 
-    @patch("pinecone_adopter.vector_store.adapter.Pinecone")
+    @patch("pinecone_adapter.vector_store.adapter.Pinecone")
     def test_init_invalid_api_key(self, mock_pinecone_class):
         """Test initialization with invalid API key."""
         mock_pinecone_class.side_effect = Exception("Invalid API key")
@@ -62,7 +62,7 @@ class TestPineconeVectorStoreAdapterInit:
 
         assert "Failed to initialize Pinecone adapter" in str(exc_info.value)
 
-    @patch("pinecone_adopter.vector_store.adapter.Pinecone")
+    @patch("pinecone_adapter.vector_store.adapter.Pinecone")
     def test_init_index_not_found(self, mock_pinecone_class):
         """Test initialization when index does not exist."""
         mock_client = MagicMock()
@@ -85,7 +85,7 @@ class TestPineconeVectorStoreAdapterSearch:
     @pytest.fixture
     def adapter(self):
         """Create a mock adapter for testing."""
-        with patch("pinecone_adopter.vector_store.adapter.Pinecone"):
+        with patch("pinecone_adapter.vector_store.adapter.Pinecone"):
             adapter = PineconeVectorStoreAdapter(
                 api_key="test-key",
                 index_name="test-index",
@@ -259,7 +259,7 @@ class TestFilterBuilding:
     @pytest.fixture
     def adapter(self):
         """Create a mock adapter for testing."""
-        with patch("pinecone_adopter.vector_store.adapter.Pinecone"):
+        with patch("pinecone_adapter.vector_store.adapter.Pinecone"):
             adapter = PineconeVectorStoreAdapter(
                 api_key="test-key",
                 index_name="test-index",
@@ -391,7 +391,7 @@ class TestResultConversion:
     @pytest.fixture
     def adapter(self):
         """Create a mock adapter for testing."""
-        with patch("pinecone_adopter.vector_store.adapter.Pinecone"):
+        with patch("pinecone_adapter.vector_store.adapter.Pinecone"):
             adapter = PineconeVectorStoreAdapter(
                 api_key="test-key",
                 index_name="test-index",
@@ -502,7 +502,7 @@ class TestResultConversion:
 class TestEmbeddingModelProperty:
     """Test embedding_model property."""
 
-    @patch("pinecone_adopter.vector_store.adapter.Pinecone")
+    @patch("pinecone_adapter.vector_store.adapter.Pinecone")
     @pytest.mark.parametrize(
         "embedding_model",
         [

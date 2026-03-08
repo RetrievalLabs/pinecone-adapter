@@ -67,7 +67,7 @@ make typecheck
 
 ```
 pinecone-adapter/
-├── pinecone_adopter/
+├── pinecone_adapter/
 │   ├── __init__.py                 # Package exports
 │   ├── version.py                  # Version info
 │   └── vector_store/
@@ -87,7 +87,7 @@ pinecone-adapter/
 
 ### PineconeVectorStoreAdapter
 
-Located in `pinecone_adopter/vector_store/adapter.py`
+Located in `pinecone_adapter/vector_store/adapter.py`
 
 Implements `rag_control.adapters.VectorStore` interface with:
 - `embedding_model` property: Returns the embedding model identifier
@@ -157,7 +157,7 @@ Example:
 ```python
 from unittest.mock import MagicMock, patch
 
-@patch('pinecone_adopter.vector_store.adapter.Pinecone')
+@patch('pinecone_adapter.vector_store.adapter.Pinecone')
 def test_search(mock_pinecone_class):
     mock_client = MagicMock()
     mock_pinecone_class.return_value = mock_client
@@ -312,14 +312,14 @@ Check `.github/workflows/` for details.
 
 ## Versioning
 
-Version is defined in `pinecone_adopter/version.py` and should follow [Semantic Versioning](https://semver.org/):
+Version is defined in `pinecone_adapter/version.py` and should follow [Semantic Versioning](https://semver.org/):
 - MAJOR: Breaking changes
 - MINOR: New features (backward compatible)
 - PATCH: Bug fixes
 
 Update version when releasing:
 ```python
-# pinecone_adopter/version.py
+# pinecone_adapter/version.py
 __version__ = "0.2.0"
 ```
 
