@@ -37,7 +37,7 @@ uv pip install pinecone-adapter
 ### 1. Initialize the Adapter
 
 ```python
-from pinecone_adopter import PineconeVectorStoreAdapter
+from pinecone_adapter import PineconeVectorStoreAdapter
 
 adapter = PineconeVectorStoreAdapter(
     api_key="your-pinecone-api-key",
@@ -51,7 +51,7 @@ adapter = PineconeVectorStoreAdapter(
 ### Complete RAG Pipeline Example
 
 ```python
-from pinecone_adopter import PineconeVectorStoreAdapter
+from pinecone_adapter import PineconeVectorStoreAdapter
 from rag_control import RAGControl
 from rag_control.models import UserContext
 
