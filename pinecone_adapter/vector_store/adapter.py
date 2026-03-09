@@ -53,6 +53,7 @@ class PineconeVectorStoreAdapter(VectorStore):
 
             # Get the index instance
             self._index = client.Index(name=index_name)
+            self._index_name = index_name
             self._embedding_model = embedding_model
         except Exception as e:
             raise VectorStoreAdapterError(f"Failed to initialize Pinecone adapter: {str(e)}") from e
@@ -113,7 +114,7 @@ class PineconeVectorStoreAdapter(VectorStore):
 
             metadata = VectorStoreSearchMetadata(
                 provider="pinecone",
-                index=self._index.name,
+                index=self._index_name,
                 latency_ms=latency_ms,
                 top_k=top_k,
                 returned=len(records),
