@@ -219,7 +219,7 @@ class PineconeVectorStoreAdapter(VectorStore):
         for match in matches:
             record = VectorStoreRecord(
                 id=match.get("id", ""),
-                content=match.get("metadata", {}).get("text", "") if match.get("metadata") else "",
+                content=match.get("metadata", {}).get("text") or match.get("metadata", {}).get("content", "") if match.get("metadata") else "",
                 score=match.get("score", 0.0),
                 metadata=match.get("metadata", {}),
             )
