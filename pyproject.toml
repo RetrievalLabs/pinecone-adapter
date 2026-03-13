@@ -1,6 +1,6 @@
 [project]
 name = "pinecone-adapter"
-version = "0.1.2"
+version = "0.1.3"
 description = "Pinecone adapter for rag_control"
 authors = [{ name = "RetrievalLabs" }]
 readme = "README.md"

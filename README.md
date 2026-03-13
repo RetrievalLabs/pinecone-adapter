@@ -30,7 +30,7 @@ uv pip install pinecone-adapter
 
 - Python >= 3.10
 - `pinecone >= 3.0.0`
-- `rag-control == 0.1.3`
+- `rag-control == 0.2.0`
 
 ## Quick Start
 
